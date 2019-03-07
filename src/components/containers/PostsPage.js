@@ -5,13 +5,13 @@ import {bindActionCreators} from 'redux';
 import * as actions from '../../actions/postsActions';
 
 export class PostsPage extends React.Component {
-  savePostsPage = () => {
-    this.props.actions.savePostsPage(this.props.PostsPage);
-  }
+  // savePostsPage = () => {
+  //   this.props.actions.savePostsPage(this.props.PostsPage);
+  // }
 
-  calculatePostsPage = e => {
-    this.props.actions.calculatePostsPage(this.props.PostsPage, e.target.name, e.target.value);
-  }
+  // calculatePostsPage = e => {
+  //   this.props.actions.calculatePostsPage(this.props.PostsPage, e.target.name, e.target.value);
+  // }
 
   render() {
     return (

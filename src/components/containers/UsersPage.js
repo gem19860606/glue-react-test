@@ -5,14 +5,6 @@ import {bindActionCreators} from 'redux';
 import * as actions from '../../actions/usersActions';
 
 export class UsersPage extends React.Component {
-  saveUsersPage = () => {
-    this.props.actions.saveUsersPage(this.props.UsersPage);
-  }
-
-  calculateUsersPage = e => {
-    this.props.actions.calculateUsersPage(this.props.UsersPage, e.target.name, e.target.value);
-  }
-
   render() {
     return (
       <div className="m-4">
@@ -26,12 +18,12 @@ export class UsersPage extends React.Component {
 
 UsersPage.propTypes = {
   actions: PropTypes.object.isRequired,
-  UsersPage: PropTypes.object.isRequired
+  users: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    UsersPage: state.UsersPage
+    users: state.usersReducer
   };
 }
 
