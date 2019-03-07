@@ -6,7 +6,6 @@ import {bindActionCreators} from 'redux';
 import * as actions from '../../actions/usersActions';
 
 import UserCard from '../UserCard';
-import { isError } from 'util';
 
 export class UsersPage extends React.Component {
   fetchUsers() {
@@ -25,7 +24,7 @@ export class UsersPage extends React.Component {
         isError
       }
     } = this.props;
-    console.log(userList);
+
     return (
       <div className="container">
         {isLoading && 
