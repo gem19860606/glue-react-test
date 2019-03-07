@@ -4,8 +4,8 @@ import 'jquery';
 import 'popper.js';
 import 'bootstrap';
 
-import AboutPage from "./AboutPage";
-import FuelSavingsPage from "./containers/FuelSavingsPage";
+import PostsPage from "./containers/PostsPage";
+import UsersPage from "./containers/UsersPage";
 import HomePage from "./HomePage";
 import NotFoundPage from "./NotFoundPage";
 import PropTypes from "prop-types";
@@ -29,18 +29,18 @@ class App extends React.Component {
                 <NavLink exact to="/" className="nav-link" activeStyle={activeStyle}>Home</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/fuel-savings" className="nav-link" activeStyle={activeStyle}>Users</NavLink>
+                <NavLink to="/users" className="nav-link" activeStyle={activeStyle}>Users</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/about" className="nav-link" activeStyle={activeStyle}>Posts</NavLink>
+                <NavLink to="/posts" className="nav-link" activeStyle={activeStyle}>Posts</NavLink>
               </li>
             </ul>
           </div>
         </nav>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/fuel-savings" component={FuelSavingsPage} />
-          <Route path="/about" component={AboutPage} />
+          <Route path="/users" component={UsersPage} />
+          <Route path="/posts" component={PostsPage} />
           <Route component={NotFoundPage} />
         </Switch>
       </div>
