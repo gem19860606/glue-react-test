@@ -11,10 +11,14 @@ export function fetchUsers() {
       dispatch({
         type: types.FETCH_USERS_SUCCESS,
         userData: data,
-      })
+      });
+    }).catch(() => {
+      dispatch({
+        type: types.FETCH_USERS_ERROR,
+      });
     });
     return dispatch({
-      type: types.FETCH_USERS_ERROR,
+      type: types.FETCH_USERS_REQUEST,
     });
   };
 }

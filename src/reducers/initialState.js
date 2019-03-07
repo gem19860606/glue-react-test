@@ -1,7 +1,9 @@
 export default {
   users: {
     items: [],
-    isLoading: false
+    isLoading: false,
+    isError: false,
+    error: null,
   },
   posts: {
     items: [],
