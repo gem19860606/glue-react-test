@@ -1,8 +1,10 @@
 export default {
   users: {
-    items: []
+    items: [],
+    isLoading: false
   },
   posts: {
-    items: []
+    items: [],
+    isLoading: false,
   }
 };
