@@ -6,10 +6,15 @@ import {bindActionCreators} from 'redux';
 import * as actions from '../../actions/postsActions';
 
 import PostCard from '../PostCard';
+import PostFilterForm from '../PostFilterForm';
 
 export class PostsPage extends React.Component {
   fetchPosts = () => {
     this.props.actions.fetchPosts();
+  }
+
+  filterPost = (filterText) => {
+    console.log(filterText);
   }
 
   componentDidMount() {
@@ -34,9 +39,12 @@ export class PostsPage extends React.Component {
         {!isLoading && 
           <div>
             <div className="mt-4 d-flex justify-content-center row">
-                <h2>
-                  Post Page
-                </h2>
+              <h2>
+                Post Page
+              </h2>
+            </div>
+            <div className="mt-4 d-flex justify-content-center row">
+              <PostFilterForm  filterPost={this.filterPost}/>
             </div>
             <div className="row">
               {
