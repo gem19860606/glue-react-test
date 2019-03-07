@@ -18,7 +18,7 @@ class PostFilterForm extends React.Component {
 
   render() {
     const {
-      filterPost
+      filterPosts
     } = this.props;
     return (
       <form className="form-inline">
@@ -27,7 +27,7 @@ class PostFilterForm extends React.Component {
         </div>
         <button
           className="btn btn-primary mb-2"
-          onClick={(e) => { e.preventDefault(); filterPost(this.state.filterText); }
+          onClick={(e) => { e.preventDefault(); filterPosts(this.state.filterText); }
         }>
           Filter Post
         </button>
@@ -37,7 +37,7 @@ class PostFilterForm extends React.Component {
 }
 
 PostFilterForm.propTypes = {
-  filterPost: PropTypes.func.isRequired
+  filterPosts: PropTypes.func.isRequired
 }
 
 export default PostFilterForm;

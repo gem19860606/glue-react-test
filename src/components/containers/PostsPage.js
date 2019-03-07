@@ -13,7 +13,7 @@ export class PostsPage extends React.Component {
     this.props.actions.fetchPosts();
   }
 
-  filterPost = (filterText) => {
+  filterPosts = (filterText) => {
     this.props.actions.filterPosts(filterText);
   }
 
@@ -44,7 +44,7 @@ export class PostsPage extends React.Component {
               </h2>
             </div>
             <div className="mt-4 d-flex justify-content-center row">
-              <PostFilterForm  filterPost={this.filterPost}/>
+              <PostFilterForm  filterPosts={this.filterPosts}/>
             </div>
             <div className="row">
               {
