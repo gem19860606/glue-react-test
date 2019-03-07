@@ -1,5 +1,8 @@
 /* eslint-disable import/no-named-as-default */
 import { NavLink, Route, Switch } from "react-router-dom";
+import 'jquery';
+import 'popper.js';
+import 'bootstrap';
 
 import AboutPage from "./AboutPage";
 import FuelSavingsPage from "./containers/FuelSavingsPage";
@@ -17,14 +20,23 @@ class App extends React.Component {
   render() {
     const activeStyle = { color: 'blue' };
     return (
+
       <div>
-        <div>
-          <NavLink exact to="/" activeStyle={activeStyle}>Home</NavLink>
-          {' | '}
-          <NavLink to="/fuel-savings" activeStyle={activeStyle}>Demo App</NavLink>
-          {' | '}
-          <NavLink to="/about" activeStyle={activeStyle}>About</NavLink>
-        </div>
+        <nav className="navbar navbar-expand navbar-light bg-light">
+          <div className="navbar-nav-scroll">
+            <ul className="navbar-nav bd-navbar-nav flex-row">
+              <li className="nav-item active">
+                <NavLink exact to="/" className="nav-link" activeStyle={activeStyle}>Home</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/fuel-savings" className="nav-link" activeStyle={activeStyle}>Users</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/about" className="nav-link" activeStyle={activeStyle}>Posts</NavLink>
+              </li>
+            </ul>
+          </div>
+        </nav>
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/fuel-savings" component={FuelSavingsPage} />
