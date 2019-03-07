@@ -1,24 +1,63 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import LoadingSpin from 'react-loading-spin';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as actions from '../../actions/postsActions';
 
-export class PostsPage extends React.Component {
-  // savePostsPage = () => {
-  //   this.props.actions.savePostsPage(this.props.PostsPage);
-  // }
+import PostCard from '../PostCard';
 
-  // calculatePostsPage = e => {
-  //   this.props.actions.calculatePostsPage(this.props.PostsPage, e.target.name, e.target.value);
-  // }
+export class PostsPage extends React.Component {
+  fetchPosts = () => {
+    this.props.actions.fetchPosts();
+  }
+
+  componentDidMount() {
+    this.fetchPosts();
+  }
 
   render() {
+    const {
+      posts: {
+        isLoading,
+        items: postList,
+        isError,
+      }
+    } = this.props;
     return (
-      <div className="m-4">
-        <h2>
-          Posts Page
-        </h2>
+      <div className="container">
+        {isLoading && 
+          <div className="mt-4 d-flex justify-content-center">
+            <LoadingSpin className="m-4" />
+          </div>
+        }
+        {!isLoading && 
+          <div>
+            <div className="mt-4 d-flex justify-content-center row">
+                <h2>
+                  Post Page
+                </h2>
+            </div>
+            <div className="row">
+              {
+                !isError &&
+                postList.map(item => {
+                  return (
+                    <div className="col-12 col-lg-4 mt-4" key={item.id}>
+                      <PostCard data={item} />
+                    </div>
+                  );
+                })
+              }
+              {
+                isError && 
+                <h3>
+                  There is some error when fetching posts
+                </h3>
+              }
+            </div>
+          </div>
+        }
       </div>
     );
   }
@@ -26,12 +65,12 @@ export class PostsPage extends React.Component {
 
 PostsPage.propTypes = {
   actions: PropTypes.object.isRequired,
-  PostsPage: PropTypes.object.isRequired
+  posts: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    PostsPage: state.PostsPage
+    posts: state.postsReducer
   };
 }
 
