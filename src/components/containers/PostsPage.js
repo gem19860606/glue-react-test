@@ -14,7 +14,7 @@ export class PostsPage extends React.Component {
   }
 
   filterPost = (filterText) => {
-    console.log(filterText);
+    this.props.actions.filterPosts(filterText);
   }
 
   componentDidMount() {
@@ -25,7 +25,7 @@ export class PostsPage extends React.Component {
     const {
       posts: {
         isLoading,
-        items: postList,
+        filteredItems: postList,
         isError,
       }
     } = this.props;

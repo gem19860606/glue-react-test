@@ -8,5 +8,8 @@ export default {
   posts: {
     items: [],
     isLoading: false,
+    isError: false,
+    error: null,
+    filteredItems: []
   }
 };
